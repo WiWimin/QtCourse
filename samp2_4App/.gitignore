@@ -1,0 +1,22 @@
+# Qt 编译生成文件
+build-*/
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.moc
+moc_*.cpp
+*.obj
+*.o
+*.so
+*.dll
+*.exe
+*.a
+*.lib
+*.tmp
+*.log
+Makefile*
+ui_*.h
+qrc_*.cpp
+# Qt Creator 临时文件
+.autosave/
