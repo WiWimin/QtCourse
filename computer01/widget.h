@@ -2,10 +2,13 @@
 #define WIDGET_H
 
 #include <QWidget>
-#include<QStack>
+#include <QStack>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
+
+class QKeyEvent;
 
 class Widget : public QWidget
 {
@@ -14,12 +17,15 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
-    QString pre;
-    QString opcode;
-    QStack<QString> pres;
-    QStack<QString>opcodes;
 
-    void calculation();
+    QString pre;                 // 当前输入的数字（或运算结果）
+    QStack<QString> pres;        // 操作数栈
+    QStack<QString> opcodes;     // 运算符栈
+    bool startNewInput = false;  // 为 true 时，下一次数字输入重新开始
+    bool hasError = false;       // 为 true 时，界面正在显示 Error
+
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
 
 private slots:
     void btnNumClick();
@@ -37,5 +43,19 @@ private slots:
 
 private:
     Ui::Widget *ui;
+
+    // 鼠标按键与键盘事件共用的输入处理
+    void inputDigit(const QString &digit);
+    void inputOperator(const QString &op);
+    void inputDot();
+    void backspace();
+    void clearAll();
+    void clearEntry();
+    void equals();
+    void applyUnary(const QString &op);
+
+    bool calculation();
+    void resetAll();
+    void showError();
 };
 #endif // WIDGET_H
