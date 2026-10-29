@@ -43,6 +43,7 @@ private slots:
 
 private:
     Ui::Widget *ui;
+    QString lastExpression;  // 已完成的表达式，如 "12 + 3 ="
 
     // 鼠标按键与键盘事件共用的输入处理
     void inputDigit(const QString &digit);
@@ -57,5 +58,6 @@ private:
     bool calculation();
     void resetAll();
     void showError();
+    void updateExpression();
 };
 #endif // WIDGET_H

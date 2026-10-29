@@ -21,6 +21,11 @@ Widget::Widget(QWidget *parent)
         padding:14px;
         text-align:right;
     }
+    QLabel#lblExpression{
+        color:#6b7280;
+        font-size:16px;
+        padding-right:14px;
+    }
     QPushButton{
         font-size:20px;
         border-radius:4px;
@@ -188,6 +193,7 @@ void Widget::inputDigit(const QString &digit)
     if (startNewInput) {
         pre.clear();
         startNewInput = false;
+        lastExpression.clear();
     }
 
     // 避免 00、08 这类前导零，但保留 0. 和 -0
@@ -198,6 +204,7 @@ void Widget::inputDigit(const QString &digit)
     }
 
     ui->display->setText(pre);
+    updateExpression();
 }
 
 void Widget::inputOperator(const QString &op)
@@ -205,10 +212,14 @@ void Widget::inputOperator(const QString &op)
     if (hasError)
         resetAll();
 
+    // 开始新的二元表达式，清掉上一条已完成表达式的显示
+    lastExpression.clear();
+
     // 还没有输入操作数：连续按运算符时只替换最近一次，避免运算符堆积
     if (pre.isEmpty()) {
         if (!opcodes.isEmpty())
             opcodes.back() = op;
+        updateExpression();
         return;
     }
 
@@ -224,6 +235,7 @@ void Widget::inputOperator(const QString &op)
 
     opcodes.push_back(op);
     startNewInput = true;
+    updateExpression();
 }
 
 void Widget::inputDot()
@@ -234,6 +246,7 @@ void Widget::inputDot()
     if (startNewInput) {
         pre.clear();
         startNewInput = false;
+        lastExpression.clear();
     }
 
     // 同一个操作数只允许出现一个小数点
@@ -247,6 +260,7 @@ void Widget::inputDot()
 
     pre += ".";
     ui->display->setText(pre);
+    updateExpression();
 }
 
 void Widget::backspace()
@@ -259,6 +273,9 @@ void Widget::backspace()
     if (pre.isEmpty())
         return;
 
+    // 退格后进入编辑状态，不再保留上一条完成表达式的显示
+    lastExpression.clear();
+
     // 直接修改成员 pre，保证内部状态与显示内容一致
     pre.chop(1);
     if (pre == "-")
@@ -266,23 +283,32 @@ void Widget::backspace()
 
     ui->display->setText(pre);
     startNewInput = false;
+    updateExpression();
 }
 
 void Widget::equals()
 {
-    if (hasError)
+    // 错误状态下按等号也统一复位，避免残留 Error 状态
+    if (hasError) {
+        resetAll();
         return;
+    }
 
     // 没有待完成的运算：保留当前值，下一次数字输入重新开始
     if (opcodes.isEmpty()) {
         if (!pre.isEmpty())
             startNewInput = true;
+        updateExpression();
         return;
     }
 
     // 缺少第二个操作数时不计算
     if (pre.isEmpty())
         return;
+
+    const QString left = pres.isEmpty() ? QString() : pres[0];
+    const QString op = opcodes[0];
+    const QString right = pre;
 
     pres.push_back(pre);
     pre.clear();
@@ -294,7 +320,9 @@ void Widget::equals()
     ui->display->setText(pre);
     pres.clear();
     opcodes.clear();
+    lastExpression = left + " " + op + " " + right + " =";
     startNewInput = true;
+    updateExpression();
 }
 
 void Widget::applyUnary(const QString &opText)
@@ -310,30 +338,38 @@ void Widget::applyUnary(const QString &opText)
             pre.remove(0, 1);
         else
             pre.prepend('-');
+        lastExpression.clear();
         ui->display->setText(pre);
         startNewInput = true;
+        updateExpression();
         return;
     }
 
+    const QString operand = pre;
     const double value = pre.toDouble();
     double res = 0.0;
+    QString expression;
 
     if (opText == "x²") {
         res = value * value;
+        expression = operand + "²";
     } else if (opText == "1/x") {
         if (value == 0.0) {
             showError();
             return;
         }
         res = 1.0 / value;
+        expression = "1/(" + operand + ")";
     } else if (opText == "√") {
         if (value < 0.0) {
             showError();
             return;
         }
         res = std::sqrt(value);
+        expression = "√(" + operand + ")";
     } else if (opText == "%") {
         res = value / 100.0;
+        expression = operand + "%";
     } else {
         return;
     }
@@ -341,6 +377,14 @@ void Widget::applyUnary(const QString &opText)
     pre = QString::number(res);
     ui->display->setText(pre);
     startNewInput = true;
+
+    // 独立一元运算显示完整表达式；作为二元运算的右操作数时由 updateExpression 显示
+    if (opcodes.isEmpty())
+        lastExpression = expression + " =";
+    else
+        lastExpression.clear();
+
+    updateExpression();
 }
 
 void Widget::resetAll()
@@ -348,9 +392,11 @@ void Widget::resetAll()
     pre.clear();
     pres.clear();
     opcodes.clear();
+    lastExpression.clear();
     startNewInput = false;
     hasError = false;
     ui->display->clear();
+    updateExpression();
 }
 
 void Widget::showError()
@@ -358,9 +404,33 @@ void Widget::showError()
     pre.clear();
     pres.clear();
     opcodes.clear();
+    lastExpression.clear();
     startNewInput = false;
     hasError = true;
     ui->display->setText("Error");
+    updateExpression();
+}
+
+void Widget::updateExpression()
+{
+    // 已完成的表达式优先显示，例如 "12 + 3 ="
+    if (!lastExpression.isEmpty()) {
+        ui->lblExpression->setText(lastExpression);
+        return;
+    }
+
+    // 没有待完成的二元运算时不显示表达式
+    if (opcodes.isEmpty()) {
+        ui->lblExpression->clear();
+        return;
+    }
+
+    // 显示 "左操作数 运算符 [右操作数]"
+    QString text = pres.isEmpty() ? QString() : pres[0];
+    text += " " + opcodes[0] + " ";
+    if (!pre.isEmpty())
+        text += pre;
+    ui->lblExpression->setText(text);
 }
 
 void Widget::btnNumClick()
@@ -422,6 +492,8 @@ void Widget::clearEntry()
     }
 
     pre.clear();
+    lastExpression.clear();
     startNewInput = false;
     ui->display->clear();
+    updateExpression();
 }
