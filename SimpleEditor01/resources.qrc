@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/baocun.png</file>
+        <file>icons/beijingse.png</file>
+        <file>icons/chazhao.png</file>
+        <file>icons/chexiao.png</file>
+        <file>icons/dakai.png</file>
+        <file>icons/exit.png</file>
+        <file>icons/font-colors.png</file>
+        <file>icons/fuzhi.png</file>
+        <file>icons/guanyu.png</file>
+        <file>icons/hanhan-01-01.png</file>
+        <file>icons/huifu.png</file>
+        <file>icons/jianqie.png</file>
+        <file>icons/lingcunwei.png</file>
+        <file>icons/new_document.png</file>
+        <file>icons/niantie.png</file>
+        <file>icons/pcbianjiqi_beijing.png</file>
+        <file>icons/quanxuan.png</file>
+        <file>icons/tihuan.png</file>
+        <file>icons/xianshihanghao.png</file>
+        <file>icons/zhuangtailan.png</file>
+        <file>icons/zidonghuanhang.png</file>
+        <file>icons/zitiyanse.png</file>
+    </qresource>
+</RCC>
