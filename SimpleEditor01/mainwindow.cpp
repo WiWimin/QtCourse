@@ -30,6 +30,10 @@ MainWindow::MainWindow(QWidget *parent)
         layout->setSpacing(0);
     }
 
+    // 工具栏图标统一为 26px，只用图标不显示文字，三组按钮之间由分隔线区分
+    ui->toolBar->setIconSize(QSize(26, 26));
+    ui->toolBar->setToolButtonStyle(Qt::ToolButtonIconOnly);
+
     // 初始化状态：无文件、未修改
     m_curFilePath = "";
     m_isModified = false;

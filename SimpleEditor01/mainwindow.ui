@@ -137,7 +137,7 @@
   <action name="action_New">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/new_document.png</normaloff>:/icons/new_document.png</iconset>
+     <normaloff>:/icons/new-document.png</normaloff>:/icons/new-document.png</iconset>
    </property>
    <property name="text">
     <string>新建(&amp;N)</string>
@@ -149,7 +149,7 @@
   <action name="action_Open">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/dakai.png</normaloff>:/icons/dakai.png</iconset>
+     <normaloff>:/icons/open-folder.png</normaloff>:/icons/open-folder.png</iconset>
    </property>
    <property name="text">
     <string>打开(&amp;O)</string>
@@ -161,7 +161,7 @@
   <action name="action_Save">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/baocun.png</normaloff>:/icons/baocun.png</iconset>
+     <normaloff>:/icons/save.png</normaloff>:/icons/save.png</iconset>
    </property>
    <property name="text">
     <string>保存(&amp;S)</string>
@@ -173,7 +173,7 @@
   <action name="action_SaveAs">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/lingcunwei.png</normaloff>:/icons/lingcunwei.png</iconset>
+     <normaloff>:/icons/save-as.png</normaloff>:/icons/save-as.png</iconset>
    </property>
    <property name="text">
     <string>另存为(&amp;A)</string>
@@ -197,7 +197,7 @@
   <action name="action_Undo">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/chexiao.png</normaloff>:/icons/chexiao.png</iconset>
+     <normaloff>:/icons/undo.png</normaloff>:/icons/undo.png</iconset>
    </property>
    <property name="text">
     <string>撤销(&amp;U)</string>
@@ -209,7 +209,7 @@
   <action name="action_Redo">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/huifu.png</normaloff>:/icons/huifu.png</iconset>
+     <normaloff>:/icons/redo.png</normaloff>:/icons/redo.png</iconset>
    </property>
    <property name="text">
     <string>恢复(&amp;I)</string>
@@ -221,7 +221,7 @@
   <action name="action_Cut">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/jianqie.png</normaloff>:/icons/jianqie.png</iconset>
+     <normaloff>:/icons/cut.png</normaloff>:/icons/cut.png</iconset>
    </property>
    <property name="text">
     <string>剪切(&amp;T)</string>
@@ -233,7 +233,7 @@
   <action name="action_Copy">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/fuzhi.png</normaloff>:/icons/fuzhi.png</iconset>
+     <normaloff>:/icons/copy.png</normaloff>:/icons/copy.png</iconset>
    </property>
    <property name="text">
     <string>复制(&amp;C)</string>
@@ -245,7 +245,7 @@
   <action name="action_Paste">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/niantie.png</normaloff>:/icons/niantie.png</iconset>
+     <normaloff>:/icons/paste.png</normaloff>:/icons/paste.png</iconset>
    </property>
    <property name="text">
     <string>粘贴(&amp;P)</string>
@@ -257,7 +257,7 @@
   <action name="action_SelectAll">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/quanxuan.png</normaloff>:/icons/quanxuan.png</iconset>
+     <normaloff>:/icons/select-all.png</normaloff>:/icons/select-all.png</iconset>
    </property>
    <property name="text">
     <string>全选(&amp;A)</string>
@@ -269,7 +269,7 @@
   <action name="action_Find">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/chazhao.png</normaloff>:/icons/chazhao.png</iconset>
+     <normaloff>:/icons/find.png</normaloff>:/icons/find.png</iconset>
    </property>
    <property name="text">
     <string>查找(&amp;F)</string>
@@ -281,7 +281,7 @@
   <action name="action_Replace">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/tihuan.png</normaloff>:/icons/tihuan.png</iconset>
+     <normaloff>:/icons/replace.png</normaloff>:/icons/replace.png</iconset>
    </property>
    <property name="text">
     <string>替换(&amp;R)</string>
@@ -299,7 +299,7 @@
    </property>
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/zidonghuanhang.png</normaloff>:/icons/zidonghuanhang.png</iconset>
+     <normaloff>:/icons/word-wrap.png</normaloff>:/icons/word-wrap.png</iconset>
    </property>
    <property name="text">
     <string>自动换行(&amp;W)</string>
@@ -317,7 +317,7 @@
    </property>
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/xianshihanghao.png</normaloff>:/icons/xianshihanghao.png</iconset>
+     <normaloff>:/icons/line-numbers.png</normaloff>:/icons/line-numbers.png</iconset>
    </property>
    <property name="text">
     <string>显示行号(&amp;L)</string>
@@ -329,7 +329,7 @@
   <action name="action_Font">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/zitiyanse.png</normaloff>:/icons/zitiyanse.png</iconset>
+     <normaloff>:/icons/font-setting.png</normaloff>:/icons/font-setting.png</iconset>
    </property>
    <property name="text">
     <string>字体(&amp;F)</string>
@@ -338,7 +338,7 @@
   <action name="action_FontColor">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/font-colors.png</normaloff>:/icons/font-colors.png</iconset>
+     <normaloff>:/icons/font-color.png</normaloff>:/icons/font-color.png</iconset>
    </property>
    <property name="text">
     <string>字体颜色</string>
@@ -347,7 +347,7 @@
   <action name="action_SelBgColor">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/beijingse.png</normaloff>:/icons/beijingse.png</iconset>
+     <normaloff>:/icons/text-bg-color.png</normaloff>:/icons/text-bg-color.png</iconset>
    </property>
    <property name="text">
     <string>字体背景色</string>
@@ -356,7 +356,7 @@
   <action name="action_EditBgColor">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/pcbianjiqi_beijing.png</normaloff>:/icons/pcbianjiqi_beijing.png</iconset>
+     <normaloff>:/icons/editor-bg-color.png</normaloff>:/icons/editor-bg-color.png</iconset>
    </property>
    <property name="text">
     <string>编辑器背景色</string>
@@ -371,7 +371,7 @@
    </property>
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/hanhan-01-01.png</normaloff>:/icons/hanhan-01-01.png</iconset>
+     <normaloff>:/icons/toolbar-toggle.png</normaloff>:/icons/toolbar-toggle.png</iconset>
    </property>
    <property name="text">
     <string>工具栏(&amp;T)</string>
@@ -386,7 +386,7 @@
    </property>
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/zhuangtailan.png</normaloff>:/icons/zhuangtailan.png</iconset>
+     <normaloff>:/icons/status-bar-toggle.png</normaloff>:/icons/status-bar-toggle.png</iconset>
    </property>
    <property name="text">
     <string>状态栏(&amp;S)</string>
@@ -395,7 +395,7 @@
   <action name="action_About">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/guanyu.png</normaloff>:/icons/guanyu.png</iconset>
+     <normaloff>:/icons/about.png</normaloff>:/icons/about.png</iconset>
    </property>
    <property name="text">
     <string>关于(&amp;A)</string>

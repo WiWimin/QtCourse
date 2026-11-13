@@ -1,26 +1,26 @@
 <RCC>
     <qresource prefix="/">
-        <file>icons/baocun.png</file>
-        <file>icons/beijingse.png</file>
-        <file>icons/chazhao.png</file>
-        <file>icons/chexiao.png</file>
-        <file>icons/dakai.png</file>
+        <file>icons/about.png</file>
+        <file>icons/copy.png</file>
+        <file>icons/cut.png</file>
+        <file>icons/editor-bg-color.png</file>
         <file>icons/exit.png</file>
-        <file>icons/font-colors.png</file>
-        <file>icons/fuzhi.png</file>
-        <file>icons/guanyu.png</file>
-        <file>icons/hanhan-01-01.png</file>
-        <file>icons/huifu.png</file>
-        <file>icons/jianqie.png</file>
-        <file>icons/lingcunwei.png</file>
-        <file>icons/new_document.png</file>
-        <file>icons/niantie.png</file>
-        <file>icons/pcbianjiqi_beijing.png</file>
-        <file>icons/quanxuan.png</file>
-        <file>icons/tihuan.png</file>
-        <file>icons/xianshihanghao.png</file>
-        <file>icons/zhuangtailan.png</file>
-        <file>icons/zidonghuanhang.png</file>
-        <file>icons/zitiyanse.png</file>
+        <file>icons/find.png</file>
+        <file>icons/font-color.png</file>
+        <file>icons/font-setting.png</file>
+        <file>icons/line-numbers.png</file>
+        <file>icons/new-document.png</file>
+        <file>icons/open-folder.png</file>
+        <file>icons/paste.png</file>
+        <file>icons/redo.png</file>
+        <file>icons/replace.png</file>
+        <file>icons/save-as.png</file>
+        <file>icons/save.png</file>
+        <file>icons/select-all.png</file>
+        <file>icons/status-bar-toggle.png</file>
+        <file>icons/text-bg-color.png</file>
+        <file>icons/toolbar-toggle.png</file>
+        <file>icons/undo.png</file>
+        <file>icons/word-wrap.png</file>
     </qresource>
 </RCC>
